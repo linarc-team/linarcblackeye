@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackEye - Cyber Attack Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">BlackEye</h1>
+        </header>
+
+        <!-- Control Panel -->
+        <div class="control-panel" id="controlPanel">
+            <div class="panel-header">
+                <h3>PAINEL DE CONTROLE</h3>
+                <button id="togglePanelBtn" class="btn-toggle">▼</button>
+            </div>
+            <div class="panel-content hidden" id="panelContent">
+                <div class="password-section">
+                    <div class="form-group">
+                        <label>SENHA DE ACESSO:</label>
+                        <input type="password" id="passwordInput" placeholder="DIGITE A SENHA" autocomplete="off">
+                        <p class="password-error" id="passwordError"></p>
+                    </div>
+                </div>
+                <div class="control-form hidden" id="controlForm">
+                    <div class="form-group">
+                        <label>TIPO DE ATAQUE:</label>
+                        <select id="attackType">
+                            <option value="DDoS">DDoS</option>
+                            <option value="Malware">Malware</option>
+                            <option value="Phishing">Phishing</option>
+                            <option value="Ransomware">Ransomware</option>
+                            <option value="SQL Injection">SQL Injection</option>
+                            <option value="Brute Force">Brute Force</option>
+                            <option value="XSS">XSS</option>
+                            <option value="MITM">MITM</option>
+                            <option value="Trojan">Trojan</option>
+                            <option value="Worm">Worm</option>
+                            <option value="Spyware">Spyware</option>
+                            <option value="Adware">Adware</option>
+                            <option value="Rootkit">Rootkit</option>
+                            <option value="Botnet">Botnet</option>
+                            <option value="Zero-Day">Zero-Day</option>
+                            <option value="APT">APT</option>
+                            <option value="DDoS Amplification">DDoS Amplification</option>
+                            <option value="DNS Spoofing">DNS Spoofing</option>
+                            <option value="Session Hijacking">Session Hijacking</option>
+                            <option value="Credential Stuffing">Credential Stuffing</option>
+                            <option value="Man-in-the-Middle">Man-in-the-Middle</option>
+                            <option value="Port Scanning">Port Scanning</option>
+                            <option value="Vulnerability Exploit">Vulnerability Exploit</option>
+                            <option value="Social Engineering">Social Engineering</option>
+                            <option value="Watering Hole">Watering Hole</option>
+                            <option value="Drive-by Download">Drive-by Download</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ORIGEM:</label>
+                        <input type="text" id="attackFrom" placeholder="Ex: Bahia, Brasil">
+                    </div>
+                    <div class="form-group">
+                        <label>DESTINO:</label>
+                        <input type="text" id="attackTo" placeholder="Ex: Tel Aviv, Israel">
+                    </div>
+                    <button id="addAttackBtn" class="btn-attack">ADICIONAR ATAQUE</button>
+                    <button id="clearAttacksBtn" class="btn-clear">LIMPAR TODOS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map" class="map-container"></div>
+
+        <!-- Attack Log -->
+        <div class="attack-log" id="attackLog">
+            <h3>LOG DE ATAQUES</h3>
+            <div id="logContent"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="locations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
